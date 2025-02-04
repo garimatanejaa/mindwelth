@@ -12,14 +12,14 @@ const SignIn = () => {
   const [error, setError] = useState('');
 
   const handleLogin = async (e) => {
-    e.preventDefault(); // Prevent form submission default behavior
+    e.preventDefault(); 
     try {
       const response = await axios.post("http://localhost:5000/signin", formData);
-      localStorage.setItem("token", response.data.token); // Save token to local storage
-      navigate("/dashboard"); // Redirect to quiz page after login
+      localStorage.setItem('token', response.data.token); 
+      navigate("/dashboard"); 
     } catch (error) {
       console.error("Login failed:", error.response?.data?.message || error.message);
-      setError(error.response?.data?.message || error.message);  // Display specific error message
+      setError(error.response?.data?.message || error.message); 
     }
   };
 

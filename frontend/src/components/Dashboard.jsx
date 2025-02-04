@@ -8,11 +8,11 @@ function Dashboard() {
   const navItems = [
     { name: 'Mood Logs', href: '/notes' },
     { name: 'Quizzes', href: '/quizzes' },
-    { name: 'AI Therapist', href: '#' },
+    { name: 'AI Therapist', href: '/therapist' },
     { name: 'Resources', href: '/resources' }
   ];
   const handleLogout = () => {
-    // Redirect to the Sign In page
+    localStorage.removeItem('token');
     navigate('/');
   };
   

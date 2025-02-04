@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
   const navItems = [
     { name: 'Mood Logs', href: '/notes' },
     { name: 'Quizzes', href: '/quizzes' },
-    { name: 'AI Therapist', href: '#' },
+    { name: 'AI Therapist', href: '/therapist' },
     { name: 'Resources', href: '/resources' },
   ];
 

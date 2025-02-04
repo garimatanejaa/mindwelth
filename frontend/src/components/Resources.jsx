@@ -1,6 +1,6 @@
 import React from 'react';
-import Layout from './Layout'; // Importing Layout
-import { BookOpen, Heart, Info, LifeBuoy } from 'lucide-react'; // Icons for sections
+import Layout from './Layout'; 
+import { BookOpen, Heart, Info, LifeBuoy } from 'lucide-react'; 
 
 export function Resources() {
   return (
