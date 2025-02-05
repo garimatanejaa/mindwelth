@@ -169,5 +169,90 @@ export const quizzes = [
         ],
         
         getResult: (score) => score <= 5 ? 'Minimal anxiety signs' : score <= 10 ? 'Moderate anxiety' : 'Severe anxiety symptoms',
-    },
+    },{
+    id: 'therapy',
+    title: 'Do I Need Therapy?',
+    description: 'Assess whether therapy might be helpful for you.',
+    image: 'https://plus.unsplash.com/premium_photo-1664378616928-dc6842677183?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    questions: [
+        { id: 1, text: 'I’m concerned about a behavior, feeling, or something I’m doing.', options: ['Not at all', 'Just a little', 'Somewhat', 'Moderately', 'Quite a lot', 'Very much'] },
+        { id: 2, text: 'This behavior or feeling has been getting worse in the past few weeks.', options: ['Not at all', 'Just a little', 'Somewhat', 'Moderately', 'Quite a lot', 'Very much'] },
+        { id: 3, text: 'I’ve tried to stop or reduce this behavior or feeling on my own.', options: ['Not at all', 'Just a little', 'Somewhat', 'Moderately', 'Quite a lot', 'Very much'] },
+        { id: 4, text: 'My attempts at stopping or reducing this behavior or feeling have been successful.', options: ['Not at all', 'Just a little', 'Somewhat', 'Moderately', 'Quite a lot', 'Very much'] },
+        { id: 5, text: 'I rely on my friends or family to help me with my current troubles.', options: ['Not at all', 'Just a little', 'Somewhat', 'Moderately', 'Quite a lot', 'Very much'] },
+        { id: 6, text: 'I’m finding it more difficult to cope with things than usual.', options: ['Not at all', 'Just a little', 'Somewhat', 'Moderately', 'Quite a lot', 'Very much'] },
+        { id: 7, text: 'I’m having trouble concentrating at work or school.', options: ['Not at all', 'Just a little', 'Somewhat', 'Moderately', 'Quite a lot', 'Very much'] },
+        { id: 8, text: 'I like to think things through or talk about things that bother me.', options: ['Not at all', 'Just a little', 'Somewhat', 'Moderately', 'Quite a lot', 'Very much'] },
+        { id: 9, text: 'I’ve talked to my friends or family about the behavior or feeling that’s troubling me.', options: ['Yes', 'No'] },
+        { id: 10, text: 'I’ve read books or gone on the internet to discover more about the behavior or feeling that’s troubling me.', options: ['Yes', 'No'] },
+        { id: 11, text: 'I’ve been in therapy before and it has helped me.', options: ['Not at all', 'Just a little', 'Somewhat', 'Moderately', 'Quite a lot', 'Very much'] },
+    ],
+    getResult: (score) => {
+        if (score >= 20 && score <= 41) {
+            return {
+                message: "You scored within the 20-41 range.",
+                description: "Scoring in this range suggests that you might benefit from psychotherapy. Keep in mind that this quiz represents this moment in time and will likely change as you experience new life events and challenges. If you’re concerned, talking things over with a mental health professional can help you with the behaviors and feelings you're experiencing. A mental health professional can offer a safe space for you to talk openly and honestly about any topic that’s concerning for you. Anyone can benefit from therapy. A mental health diagnosis is not required to begin your therapy journey."
+            };
+        } else if (score >= 42 && score <= 60) {
+            return {
+                message: "You scored within the 42-60 range.",
+                description: "Scoring in this range suggests that you might be experiencing significant distress or difficulty in managing your thoughts, emotions, or behaviors. Seeking therapy could provide you with support, coping strategies, and guidance tailored to your needs. Therapy isn’t just for crises—it can be a proactive tool for improving your well-being."
+            };
+        } else if (score >= 61) {
+            return {
+                message: "You scored 61 or above.",
+                description: "A high score suggests that your challenges are significantly impacting your daily life, relationships, or overall well-being. It might be beneficial to speak with a therapist or mental health professional. Remember, seeking help is a sign of strength, and therapy can provide valuable insights and tools to help you navigate your concerns."
+            };
+        } else {
+            return {
+                message: "Your score is below 20.",
+                description: "Based on your responses, you may not be currently experiencing significant distress. However, if you ever feel overwhelmed or uncertain about your emotions, therapy is always an option for self-growth and support."
+            };
+        }
+    }
+},{
+    id: 'bipolar-disorder',
+    title: 'Do I Have Bipolar Disorder?',
+    description: 'This quiz helps assess whether you may be experiencing symptoms of bipolar disorder.',
+    image: 'https://plus.unsplash.com/premium_photo-1689177357836-52c9d90d3d6f?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    questions: [
+        { id: 1, text: 'At times, I feel so energetic that I can function on little to no sleep', options: ['Never', 'Occasionally', 'Often for several days at a time'] },
+        { id: 2, text: 'I have difficulty following through on some of my plans and projects, even though I was very excited about them when I got started.', options: ['Never', 'Occasionally', 'Often for several days at a time'] },
+        { id: 3, text: 'People have told me they\'re having trouble keeping up with what I am saying.', options: ['Never', 'Occasionally', 'Often for several days at a time'] },
+        { id: 4, text: 'At times, I feel really down about myself, questioning my own worth.', options: ['Never', 'Occasionally', 'Often for several days at a time'] },
+        { id: 5, text: 'I go through periods of time where my sexual drive greatly increases.', options: ['Never', 'Occasionally', 'Often for several days at a time'] },
+        { id: 6, text: 'I have contemplated ending my own life.', options: ['Never', 'Occasionally', 'Often for several days at a time'] },
+        { id: 7, text: 'I have felt so irritable that I have gotten into arguments with other people pretty quickly.', options: ['Never', 'Occasionally', 'Often for several days at a time'] },
+        { id: 8, text: 'Other people don’t always match my enthusiasm.', options: ['Never', 'Occasionally', 'Often for several days at a time'] },
+        { id: 9, text: 'There are days when I feel like I can’t get out of bed.', options: ['Never', 'Occasionally', 'Often for several days at a time'] },
+        { id: 10, text: 'Sometimes I feel much more social, outgoing, and charming.', options: ['Never', 'Occasionally', 'Often for several days at a time'] },
+        { id: 11, text: 'I periodically do things that carry some risk to them (e.g., using alcohol or drugs, gambling, unsafe sexual activity, thrill-seeking activities).', options: ['Never', 'Occasionally', 'Often for several days at a time'] },
+        { id: 12, text: 'I have noticed that the windows of time where I feel amazing are typically followed by feeling awful.', options: ['Never', 'Occasionally', 'Often for several days at a time'] },
+        { id: 13, text: 'Sometimes I am very productive, and at other times I can’t seem to get anything done.', options: ['Never', 'Occasionally', 'Often for several days at a time'] }
+    ],
+    getResult: (score) => {
+        if (score >= 12 && score <= 20) {
+            return {
+                message: "You scored within the 12-20 range.",
+                description: "Scoring in this range suggests that you may experience some mood fluctuations. It's worth reflecting on whether these shifts significantly impact your daily life. If you're concerned about your symptoms, speaking with a mental health professional can help provide clarity."
+            };
+        } else if (score >= 21 && score <= 35) {
+            return {
+                message: "You scored within the 21-35 range.",
+                description: "Scoring in this range suggests that your symptoms may be indicative of mood instability that could be affecting your life. It might be helpful to consult a mental health professional who can provide guidance and further evaluation."
+            };
+        } else if (score >= 36) {
+            return {
+                message: "You scored 36 or above.",
+                description: "A high score suggests that you may be experiencing significant mood swings that could be related to bipolar disorder. It's important to consult with a healthcare professional who can assess your symptoms and offer appropriate treatment or support."
+            };
+        } else {
+            return {
+                message: "Your score is below 12.",
+                description: "Based on your responses, you may not be experiencing significant mood swings. However, if you have concerns about your mental health, it’s always a good idea to talk to a professional."
+            };
+        }
+    }
+},
+
 ];

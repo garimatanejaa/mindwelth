@@ -50,6 +50,6 @@ const router = express.Router();
 router.post("/submit", authenticateUser, attemptController.createAttempt);
 
 // ✅ Get quiz attempts for a specific user
-router.get("/:userId", authenticateUser, attemptController.getAttemptsByUserId);
+router.get("/", authenticateUser, attemptController.getAttemptsByUserId);
 
 module.exports = router;

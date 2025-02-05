@@ -191,6 +191,8 @@ app.get('/profile', authenticateUser, async (req, res) => {
 });
 const noteRoutes = require('./routes/noteRoutes');
 app.use('/note', noteRoutes);
+const attemptRoutes = require("./routes/attemptRoutes"); // Corrected filename
+app.use("/attempts", attemptRoutes); // This ensures that "/attempts/..." routes work
 
 // Server Start
 const PORT = process.env.PORT || 5000;

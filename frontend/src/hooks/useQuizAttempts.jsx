@@ -76,35 +76,59 @@ export function useQuizAttempts(userId) {
 
   return { attempts, addAttempt, loading, error };
 }*/}
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 export function useQuizAttempts() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-
+  const [attempts, setAttempts] = useState([]);
   const addAttempt = async ({ quizId, score, result, date, userId }) => {
     setLoading(true);
     setError(null);
 
     try {
       // Make the API call to store the attempt in the backend
-      await axios.post('/api/attempts/submit', {
+      await axios.post('http://localhost:5000/attempts/submit', {
         quizId,
         score,
         result,
         date,
         userId,
-      });
+      },{ headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } });
+      await fetchAttempts();
       setLoading(false);
     } catch (err) {
       setError('Failed to record attempt');
       setLoading(false);
     }
   };
+  const fetchAttempts = async () => {
+    setLoading(true);
+    setError(null);
+
+    try {
+      const response = await axios.get("http://localhost:5000/attempts", {
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+      });
+
+      setAttempts(response.data);
+      setLoading(false);
+    } catch (err) {
+      setError("Failed to fetch attempts");
+      setLoading(false);
+    }
+  };
+
+  // Fetch attempts when the hook is first mounted
+  useEffect(() => {
+    fetchAttempts();
+  }, []);
 
   return {
     addAttempt,
+    fetchAttempts,
+    attempts,
     loading,
     error,
   };
