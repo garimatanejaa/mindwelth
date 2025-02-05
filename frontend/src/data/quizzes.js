@@ -255,9 +255,9 @@ export const quizzes = [
     }
 },
 {
-    id: 'bipolar-disorder',
-    title: 'Do I Have Bipolar Disorder?',
-    description: 'This quiz helps assess whether you may be experiencing symptoms of bipolar disorder.',
+    id: 'sleep-chronotype',
+    title: 'What Is My Sleep Chronotype?',
+    description: 'This quiz helps you identify your sleep-chronotype.',
     image: 'https://images.unsplash.com/photo-1519003300449-424ad0405076?q=80&w=1898&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     questions: [
         { id: 1, text: 'At times, I feel so energetic that I can function on little to no sleep', options: ['Never', 'Occasionally', 'Often for several days at a time'] },
