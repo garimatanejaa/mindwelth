@@ -254,5 +254,56 @@ export const quizzes = [
         }
     }
 },
+{
+    id: 'bipolar-disorder',
+    title: 'Do I Have Bipolar Disorder?',
+    description: 'This quiz helps assess whether you may be experiencing symptoms of bipolar disorder.',
+    image: 'https://images.unsplash.com/photo-1519003300449-424ad0405076?q=80&w=1898&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    questions: [
+        { id: 1, text: 'At times, I feel so energetic that I can function on little to no sleep', options: ['Never', 'Occasionally', 'Often for several days at a time'] },
+        { id: 2, text: 'I have difficulty following through on some of my plans and projects, even though I was very excited about them when I got started.', options: ['Never', 'Occasionally', 'Often for several days at a time'] },
+        { id: 3, text: 'People have told me they\'re having trouble keeping up with what I am saying.', options: ['Never', 'Occasionally', 'Often for several days at a time'] },
+        { id: 4, text: 'At times, I feel really down about myself, questioning my own worth.', options: ['Never', 'Occasionally', 'Often for several days at a time'] },
+        { id: 5, text: 'I go through periods of time where my sexual drive greatly increases.', options: ['Never', 'Occasionally', 'Often for several days at a time'] },
+        { id: 6, text: 'I have contemplated ending my own life.', options: ['Never', 'Occasionally', 'Often for several days at a time'] },
+        { id: 7, text: 'I have felt so irritable that I have gotten into arguments with other people pretty quickly.', options: ['Never', 'Occasionally', 'Often for several days at a time'] },
+        { id: 8, text: 'Other people don’t always match my enthusiasm.', options: ['Never', 'Occasionally', 'Often for several days at a time'] },
+        { id: 9, text: 'There are days when I feel like I can’t get out of bed.', options: ['Never', 'Occasionally', 'Often for several days at a time'] },
+        { id: 10, text: 'Sometimes I feel much more social, outgoing, and charming.', options: ['Never', 'Occasionally', 'Often for several days at a time'] },
+        { id: 11, text: 'I periodically do things that carry some risk to them (e.g., using alcohol or drugs, gambling, unsafe sexual activity, thrill-seeking activities).', options: ['Never', 'Occasionally', 'Often for several days at a time'] },
+        { id: 12, text: 'I have noticed that the windows of time where I feel amazing are typically followed by feeling awful.', options: ['Never', 'Occasionally', 'Often for several days at a time'] },
+        { id: 13, text: 'Sometimes I am very productive, and at other times I can’t seem to get anything done.', options: ['Never', 'Occasionally', 'Often for several days at a time'] }
+    ],
+    getResult: (score) => {
+        if (score >= 10 && score <= 16) {
+            return {
+                message: "You may be a Bear.",
+                description: "The Bear chronotype is the most common. Your sleep and wake cycle aligns with the sun's rising and setting, meaning you're more alert during the day and prefer to sleep at night."
+            };
+        } else if (score >= 17 && score <= 23) {
+            return {
+                message: "You may be a Lion.",
+                description: "Lions prefer to wake up early and wind down early, often falling asleep around 9 or 10 p.m. You may feel energetic and productive in the morning."
+            };
+        } else if (score >= 24 && score <= 30) {
+            return {
+                message: "You may be a Wolf.",
+                description: "Wolves tend to have trouble waking up in the morning and feel more energetic in the afternoon and evening. You might also feel a second energy boost around 6 p.m."
+            };
+        } else if (score >= 31 && score <= 40) {
+            return {
+                message: "You may be a Dolphin.",
+                description: "Dolphins often have trouble maintaining a consistent sleep schedule and may be sensitive to noise. You're usually most productive in the late morning and early afternoon."
+            };
+        } else {
+            return {
+                message: "Based on your responses, your chronotype is unclear.",
+                description: "You may fall somewhere in between these types. Understanding your sleep habits and cycles may help you identify your most natural sleep pattern."
+            };
+        }
+    }
+
+},
+
 
 ];
