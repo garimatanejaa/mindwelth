@@ -20,7 +20,7 @@ export function QuizPage() {
         <div className="text-center">
           <h2 className="text-2xl font-bold text-gray-900">Quiz not found</h2>
           <button
-            onClick={() => navigate('/')}
+            onClick={() => navigate('/dashboard')}
             className="mt-4 inline-flex items-center text-blue-600 hover:text-blue-800"
           >
             <ArrowLeft className="mr-2 h-4 w-4" /> Back to Quizzes
@@ -30,17 +30,19 @@ export function QuizPage() {
     );
   }
 
+  const question = quiz.questions[currentQuestion];
+
   const handleAnswer = (optionIndex) => {
-    const newAnswers = [...answers, optionIndex];
+    const selectedOption = question.options[optionIndex];
+    const newAnswers = [...answers, selectedOption.score];
     setAnswers(newAnswers);
 
     if (currentQuestion < quiz.questions.length - 1) {
-      setCurrentQuestion(prev => prev + 1);
+      setCurrentQuestion((prev) => prev + 1);
     } else {
-      const score = newAnswers.reduce((acc, curr) => acc + curr + 1, 0);
-      const result = quiz.getResult(score);  // Get the result based on score
+      const score = newAnswers.reduce((acc, curr) => acc + curr, 0);
+      const result = quiz.getResult(score);
 
-      // Save the attempt with result and score
       addAttempt({
         quizId: quiz.id,
         score,
@@ -52,11 +54,9 @@ export function QuizPage() {
     }
   };
 
-  const question = quiz.questions[currentQuestion];
-
   if (showResult) {
-    const score = answers.reduce((acc, curr) => acc + curr + 1, 0);
-    const result = quiz.getResult(score);  // Get the result again when showing the result page
+    const score = answers.reduce((acc, curr) => acc + curr, 0); // Fixed incorrect sum calculation
+    const result = quiz.getResult(score);
 
     return (
       <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
@@ -127,7 +127,7 @@ export function QuizPage() {
                   onClick={() => handleAnswer(index)}
                   className="w-full text-left p-4 border rounded-lg hover:bg-gray-50 transition-colors"
                 >
-                  {option}
+                  {option.text} {/* Fixed incorrect rendering of options */}
                 </button>
               ))}
             </div>
