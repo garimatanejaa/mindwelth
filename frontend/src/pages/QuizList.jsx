@@ -8,8 +8,7 @@ import Layout from '../components/Layout';
 
 export function QuizList({userId}) {
   const { attempts, addAttempt , loading, error} = useQuizAttempts(userId);
-  //if (loading) return <p>Loading...</p>;
- // if (error) return <p>Error: {error}</p>;
+
   return (
     <Layout>
       <div className="min-h-screen bg-purple-100 py-12 px-4 sm:px-6 lg:px-8">

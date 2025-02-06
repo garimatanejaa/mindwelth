@@ -9,8 +9,7 @@ exports.addNote = async (req, res) => {
     }
 
     const newNote = new Note({
-      userId: req.userId, // Ensure note is tied to the logged-in user
-      title,
+      userId: req.userId, 
       description,
       satisfaction: satisfaction || 0
     });
@@ -28,7 +27,7 @@ exports.addNote = async (req, res) => {
 
 exports.getAllNotes = async (req, res) => {
   try {
-    // Fetch notes ONLY for the logged-in user
+
     const notes = await Note.find({ userId: req.userId }).sort({ createdAt: -1 });
 
     if (!notes || notes.length === 0) {
@@ -48,20 +47,16 @@ exports.getAllNotes = async (req, res) => {
 exports.deleteNote = async (req, res) => {
   try {
     const { id } = req.params;
-
-    // Find the note first
     const note = await Note.findById(id);
     
     if (!note) {
       return res.status(404).json({ message: 'Note not found' });
     }
 
-    // Check if the note belongs to the logged-in user
     if (note.userId.toString() !== req.userId) {
       return res.status(403).json({ message: "You don't have permission to delete this note" });
     }
 
-    // Delete only if the user is authorized
     await Note.findByIdAndDelete(id);
 
     res.status(200).json({ message: 'Note deleted successfully' });

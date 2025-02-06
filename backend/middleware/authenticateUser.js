@@ -1,4 +1,4 @@
-//backend/middleware/authenticateUser.js
+
 const jwt = require("jsonwebtoken");
 const User = require('../models/users');
 const JWT_SECRET = process.env.JWT_SECRET;
