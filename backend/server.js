@@ -96,7 +96,7 @@ const attemptRoutes = require("./routes/attemptRoutes");
 app.use("/attempts", attemptRoutes); 
 
 // Server Start
-const PORT = process.env.PORT || 5000;
+const PORT = "https://mindwelth-frontend.vercel.app";
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
