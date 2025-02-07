@@ -19,7 +19,7 @@ mongoose.connect(process.env.MONGODB_URI)
   .catch((err) => console.error("MongoDB connection error:", err));
 
 // Authentication Routes
-app.post('/signup', async (req, res) => {
+app.post('/api/signup', async (req, res) => {
     try {
         const { name, email, password } = req.body;
         const existingUser = await User.findOne({ email });
@@ -42,7 +42,7 @@ app.post('/signup', async (req, res) => {
     }
 });
 
-app.post('/signin', async (req, res) => {
+app.post('/api/signin', async (req, res) => {
     const { email, password } = req.body;
 
     try {
@@ -82,21 +82,22 @@ const authenticateUser = (req, res, next) => {
 };
 
 // Protected Route
-{/*app.get('/profile', authenticateUser, async (req, res) => {
-    try {
-        const user = await User.findById(req.userId).select("-password");
-        res.json(user);
-    } catch (error) {
-        res.status(500).json({ message: "Error fetching user profile" });
-    }
-});*/}
+//app.get('/profile', authenticateUser, async (req, res) => {
+  //  try {
+    //    const user = await User.findById(req.userId).select("-password");
+      //  res.json(user);
+    //} catch (error) {
+      //  res.status(500).json({ message: "Error fetching user profile" });
+    //}
+//});
 const noteRoutes = require('./routes/noteRoutes');
-app.use('/note', noteRoutes);
+app.use('/api/note', noteRoutes);
 const attemptRoutes = require("./routes/attemptRoutes"); 
-app.use("/attempts", attemptRoutes); 
+app.use("/api/attempts", attemptRoutes); 
 
 // Server Start
-const PORT = "https://mindwelth-frontend.vercel.app";
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+//const PORT = "https://mindwelth-frontend.vercel.app";
+//app.listen(PORT, () => {
+//  console.log(`Server running on port ${PORT}`);
+//});
+module.exports = app;

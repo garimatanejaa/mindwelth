@@ -28,7 +28,7 @@ const NoteModal = ({ onClose, onSave }) => {
         return;
       }
 
-      const response = await axios.post('https://mindwelth.vercel.app//note/add', { 
+      const response = await axios.post('https://mindwelth.vercel.app/api/note/add', { 
         title, 
         description, 
         satisfaction 

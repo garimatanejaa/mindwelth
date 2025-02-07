@@ -12,7 +12,7 @@ export function useQuizAttempts() {
 
     try {
       // Make the API call to store the attempt in the backend
-      await axios.post('https://mindwelth.vercel.app/attempts/submit', {
+      await axios.post('https://mindwelth.vercel.app/api/attempts/submit', {
         quizId,
         score,
         result,
@@ -31,7 +31,7 @@ export function useQuizAttempts() {
     setError(null);
 
     try {
-      const response = await axios.get("https://mindwelth.vercel.app/attempts", {
+      const response = await axios.get("https://mindwelth.vercel.app/api/attempts", {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
 
