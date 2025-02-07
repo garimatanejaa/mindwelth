@@ -82,14 +82,14 @@ const authenticateUser = (req, res, next) => {
 };
 
 // Protected Route
-app.get('/profile', authenticateUser, async (req, res) => {
+{/*app.get('/profile', authenticateUser, async (req, res) => {
     try {
         const user = await User.findById(req.userId).select("-password");
         res.json(user);
     } catch (error) {
         res.status(500).json({ message: "Error fetching user profile" });
     }
-});
+});*/}
 const noteRoutes = require('./routes/noteRoutes');
 app.use('/note', noteRoutes);
 const attemptRoutes = require("./routes/attemptRoutes"); 

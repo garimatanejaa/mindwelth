@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Import for routing
+import { HashRouter as Router, Route, Routes } from 'react-router-dom'; 
 import LandingPage from './components/LandingPage';
 import SignUp from './components/SignUp';
 import SignIn from './components/SignIn';
@@ -10,7 +10,6 @@ import { Resources } from './components/Resources';
 import Notes from './pages/Notes';
 import AboutUs from './pages/AboutUs';
 import Therapist from './components/Therapist';
-
 
 function App() {
   return (
