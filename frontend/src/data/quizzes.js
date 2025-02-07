@@ -855,47 +855,6 @@ getResult: (score) =>
     description: 'Assess whether therapy might be helpful for you.',
     image: 'https://plus.unsplash.com/premium_photo-1664378616928-dc6842677183?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     questions: [
-        { id: 1, text: 'I’m concerned about a behavior, feeling, or something I’m doing.', options: ['Not at all', 'Just a little', 'Somewhat', 'Moderately', 'Quite a lot', 'Very much'] },
-        { id: 2, text: 'This behavior or feeling has been getting worse in the past few weeks.', options: ['Not at all', 'Just a little', 'Somewhat', 'Moderately', 'Quite a lot', 'Very much'] },
-        { id: 3, text: 'I’ve tried to stop or reduce this behavior or feeling on my own.', options: ['Not at all', 'Just a little', 'Somewhat', 'Moderately', 'Quite a lot', 'Very much'] },
-        { id: 4, text: 'My attempts at stopping or reducing this behavior or feeling have been successful.', options: ['Not at all', 'Just a little', 'Somewhat', 'Moderately', 'Quite a lot', 'Very much'] },
-        { id: 5, text: 'I rely on my friends or family to help me with my current troubles.', options: ['Not at all', 'Just a little', 'Somewhat', 'Moderately', 'Quite a lot', 'Very much'] },
-        { id: 6, text: 'I’m finding it more difficult to cope with things than usual.', options: ['Not at all', 'Just a little', 'Somewhat', 'Moderately', 'Quite a lot', 'Very much'] },
-        { id: 7, text: 'I’m having trouble concentrating at work or school.', options: ['Not at all', 'Just a little', 'Somewhat', 'Moderately', 'Quite a lot', 'Very much'] },
-        { id: 8, text: 'I like to think things through or talk about things that bother me.', options: ['Not at all', 'Just a little', 'Somewhat', 'Moderately', 'Quite a lot', 'Very much'] },
-        { id: 9, text: 'I’ve talked to my friends or family about the behavior or feeling that’s troubling me.', options: ['Yes', 'No'] },
-        { id: 10, text: 'I’ve read books or gone on the internet to discover more about the behavior or feeling that’s troubling me.', options: ['Yes', 'No'] },
-        { id: 11, text: 'I’ve been in therapy before and it has helped me.', options: ['Not at all', 'Just a little', 'Somewhat', 'Moderately', 'Quite a lot', 'Very much'] },
-    ],
-    getResult: (score) => {
-        if (score >= 20 && score <= 41) {
-            return {
-                message: "You scored within the 20-41 range.",
-                description: "Scoring in this range suggests that you might benefit from psychotherapy. Keep in mind that this quiz represents this moment in time and will likely change as you experience new life events and challenges. If you’re concerned, talking things over with a mental health professional can help you with the behaviors and feelings you're experiencing. A mental health professional can offer a safe space for you to talk openly and honestly about any topic that’s concerning for you. Anyone can benefit from therapy. A mental health diagnosis is not required to begin your therapy journey."
-            };
-        } else if (score >= 42 && score <= 60) {
-            return {
-                message: "You scored within the 42-60 range.",
-                description: "Scoring in this range suggests that you might be experiencing significant distress or difficulty in managing your thoughts, emotions, or behaviors. Seeking therapy could provide you with support, coping strategies, and guidance tailored to your needs. Therapy isn’t just for crises—it can be a proactive tool for improving your well-being."
-            };
-        } else if (score >= 61) {
-            return {
-                message: "You scored 61 or above.",
-                description: "A high score suggests that your challenges are significantly impacting your daily life, relationships, or overall well-being. It might be beneficial to speak with a therapist or mental health professional. Remember, seeking help is a sign of strength, and therapy can provide valuable insights and tools to help you navigate your concerns."
-            };
-        } else {
-            return {
-                message: "Your score is below 20.",
-                description: "Based on your responses, you may not be currently experiencing significant distress. However, if you ever feel overwhelmed or uncertain about your emotions, therapy is always an option for self-growth and support."
-            };
-        }
-    }
-},{
-    id: 'therapy',
-    title: 'Do I Need Therapy?',
-    description: 'Assess whether therapy might be helpful for you.',
-    image: 'https://plus.unsplash.com/premium_photo-1664378616928-dc6842677183?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    questions: [
         { id: 1, text: 'I’m concerned about a behavior, feeling, or something I’m doing.', options: [{ text: 'Not at all', score: 0 }, { text: 'Just a little', score: 1 }, { text: 'Somewhat', score: 2 }, { text: 'Moderately', score: 3 }, { text: 'Quite a lot', score: 4 }, { text: 'Very much', score: 5 }] },
         { id: 2, text: 'This behavior or feeling has been getting worse in the past few weeks.', options: [{ text: 'Not at all', score: 0 }, { text: 'Just a little', score: 1 }, { text: 'Somewhat', score: 2 }, { text: 'Moderately', score: 3 }, { text: 'Quite a lot', score: 4 }, { text: 'Very much', score: 5 }] },
         { id: 3, text: 'I’ve tried to stop or reduce this behavior or feeling on my own.', options: [{ text: 'Not at all', score: 0 }, { text: 'Just a little', score: 1 }, { text: 'Somewhat', score: 2 }, { text: 'Moderately', score: 3 }, { text: 'Quite a lot', score: 4 }, { text: 'Very much', score: 5 }] },
