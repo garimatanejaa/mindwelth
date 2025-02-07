@@ -6,20 +6,27 @@ require("dotenv").config();
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const User = require('./models/users');
+
 const app = express();
 app.use(express.json());
 app.use(cors({
     origin: ["https://mindwelth-frontend.vercel.app"],
-    methods : ["POST","OPTIONS"],
+    methods: ["POST", "OPTIONS"],
     credentials: true
 }));
 app.use(bodyParser.json());
+
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.error("MongoDB connection error:", err));
 
-// Authentication Routes
+// Handle preflight requests
+app.options('/api/signin', cors());
+app.options('/api/signup', cors());
+
+// Sign-up route
 app.post('/api/signup', async (req, res) => {
+    console.log("Sign-up request received:", req.body); // Log the request body
     try {
         const { name, email, password } = req.body;
         const existingUser = await User.findOne({ email });
@@ -36,13 +43,17 @@ app.post('/api/signup', async (req, res) => {
         });
         await newUser.save();
 
+        console.log("User created successfully:", newUser.email); // Log successful sign-up
         res.status(201).json({ message: "User created successfully" });
     } catch (error) {
+        console.error("Sign-up error:", error); // Log errors
         res.status(500).json({ message: "Error creating user", error: error.message });
     }
 });
 
+// Sign-in route
 app.post('/api/signin', async (req, res) => {
+    console.log("Sign-in request received:", req.body); // Log the request body
     const { email, password } = req.body;
 
     try {
@@ -58,34 +69,23 @@ app.post('/api/signin', async (req, res) => {
 
         const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: "1h" });
 
+        console.log("Login successful for user:", user.email); // Log successful login
         res.json({ message: 'Login successful', token });
     } catch (error) {
+        console.error("Login error:", error); // Log errors
         res.status(500).json({ message: 'Server error', error: error.message });
     }
 });
 
-// Authentication Middleware
-const authenticateUser = (req, res, next) => {
-    const token = req.header("Authorization")?.split(" ")[1];
-
-    if (!token) {
-        return res.status(401).json({ message: "Access denied, no token provided" });
-    }
-
-    try {
-        const decoded = jwt.verify(token, process.env.JWT_SECRET);
-        req.userId = decoded.userId;
-        next();
-    } catch (error) {
-        res.status(401).json({ message: "Invalid token" });
-    }
-};
+// Root route
 app.get("/", (req, res) => {
     res.send("Welcome to the MindWelth API!");
 });
 
+// Other routes
 const noteRoutes = require('./routes/noteRoutes');
 app.use('/api/note', noteRoutes);
 const attemptRoutes = require("./routes/attemptRoutes"); 
 app.use("/api/attempts", attemptRoutes); 
+
 module.exports = app;
