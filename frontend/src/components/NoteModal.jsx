@@ -8,7 +8,7 @@ const NoteModal = ({ onClose, onSave }) => {
   const [description, setDescription] = useState('');
   const [error, setError] = useState(null); 
   const [satisfaction, setSatisfaction] = useState(0);
-  const [success, setSuccess] = useState(null);  // State for success message
+  const [success, setSuccess] = useState(null); 
   const navigate = useNavigate(); 
 
   const handleSubmit = async (e) => {
@@ -28,17 +28,17 @@ const NoteModal = ({ onClose, onSave }) => {
         return;
       }
 
-      const response = await axios.post('http://localhost:5000/note/add', { 
+      const response = await axios.post('https://mindwelth.vercel.app//note/add', { 
         title, 
         description, 
         satisfaction 
       }, {
         headers: {
-          Authorization: `Bearer ${token}`,  // Include the token in the request
+          Authorization: `Bearer ${token}`, 
         },
       });
 
-      // On success, update the state and call onSave() for the parent component
+     
       setSuccess("Note added successfully!");
       setError(null);
       onSave();
@@ -46,7 +46,7 @@ const NoteModal = ({ onClose, onSave }) => {
     } catch (err) {
       console.error("Error:", err);
       setError("Failed to save the note. Please try again.");
-      setSuccess(null);  // Reset success state in case of error
+      setSuccess(null); 
     }
   };
 

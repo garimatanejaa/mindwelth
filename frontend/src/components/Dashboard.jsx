@@ -97,21 +97,9 @@ function Dashboard() {
         <p className="text-lg text-gray-600 text-center mb-10">
         Because true "welth" isn’t just about money—it’s about a healthy mind, a peaceful heart, and a soul that feels at home. 💜
         </p>
-
-        {/* Grid Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {/* Quick Mood Check */}
-          {/*<div className="bg-purple-100 rounded-lg p-6 flex flex-col items-center">
-            <Smile className="h-10 w-10 text-purple-900 mb-4" />
-            <h2 className="text-xl font-semibold text-purple-900">Quick Mood Check</h2>
-            <p className="text-purple-700 mt-2">How are you feeling today?</p>
-            <button className="mt-4 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700">
-              Check In
-            </button>
-          </div>*/}
+          
            <QuickMoodCheck />
-
-          {/* Upcoming Sessions */}
           <div className="bg-blue-100 rounded-lg p-6 flex flex-col items-center">
             <Calendar className="h-10 w-10 text-blue-900 mb-4" />
             <h2 className="text-xl font-semibold text-blue-900">Upcoming Sessions</h2>
@@ -121,7 +109,6 @@ function Dashboard() {
 </button>
           </div>
 
-          {/* Resources */}
           <div className="bg-green-100 rounded-lg p-6 flex flex-col items-center">
             <FileText className="h-10 w-10 text-green-900 mb-4" />
             <h2 className="text-xl font-semibold text-green-900">Quick Resources</h2>
@@ -131,16 +118,16 @@ function Dashboard() {
           </div>
         </div>
 
-        {/* Recent Activity */}
+        
         <div className="mt-12">
           <h2 className="text-2xl font-semibold text-gray-900 mb-4">Recent Activity</h2>
           <div className="bg-gray-50 rounded-lg p-6">
-           {/* <p className="text-gray-600">No recent activity to display</p>*/}
+          
            <RecentActivity/>
           </div>
         </div>
 
-        {/* Mental Health Information */}
+       
         <section className="mt-12">
           <div className="flex items-center justify-start mb-4">
             <Info className="h-8 w-8 text-purple-600 mr-4" />
@@ -151,7 +138,7 @@ function Dashboard() {
           </p>
         </section>
 
-        {/* Books and Articles */}
+   
         <section className="mt-12">
           <div className="flex items-center justify-start mb-4">
             <BookOpen className="h-8 w-8 text-purple-600 mr-4" />
@@ -164,7 +151,6 @@ function Dashboard() {
           </ul>
         </section>
 
-        {/* Mental Health Apps */}
         <section className="mt-12">
           <div className="flex items-center justify-start mb-4">
             <Download className="h-8 w-8 text-purple-600 mr-4" />
@@ -179,7 +165,7 @@ function Dashboard() {
       </div>
     </main>
 
-      {/* Footer */}
+     
       <footer className="bg-white shadow-inner mt-auto">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center">

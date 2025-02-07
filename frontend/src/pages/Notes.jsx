@@ -14,7 +14,7 @@ const Notes = () => {
     
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:5000/note/all',{
+      const response = await axios.get('https://mindwelth.vercel.app/note/all',{
         headers: {
           Authorization: `Bearer ${token}`,  // Added token in the request header for authorization
         },
@@ -38,7 +38,7 @@ const Notes = () => {
   const handleDelete = async (id) => {
     try {
      const token = localStorage.getItem('token');
-      await axios.delete(`http://localhost:5000/note/delete/${id}`,
+      await axios.delete(`https://mindwelth.vercel.app/note/delete/${id}`,
         {
             headers: {
               Authorization: `Bearer ${token}`,  // Added token in the request header for authorization
