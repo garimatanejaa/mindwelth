@@ -10,7 +10,7 @@ const app = express();
 app.use(express.json());
 app.use(cors({
     origin: ["https://mindwelth-frontend.vercel.app"],
-    methods : ["POST","GET"],
+    methods : ["POST","OPTIONS"],
     credentials: true
 }));
 app.use(bodyParser.json());
