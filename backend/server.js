@@ -81,23 +81,9 @@ const authenticateUser = (req, res, next) => {
     }
 };
 
-// Protected Route
-//app.get('/profile', authenticateUser, async (req, res) => {
-  //  try {
-    //    const user = await User.findById(req.userId).select("-password");
-      //  res.json(user);
-    //} catch (error) {
-      //  res.status(500).json({ message: "Error fetching user profile" });
-    //}
-//});
+
 const noteRoutes = require('./routes/noteRoutes');
 app.use('/api/note', noteRoutes);
 const attemptRoutes = require("./routes/attemptRoutes"); 
 app.use("/api/attempts", attemptRoutes); 
-
-// Server Start
-//const PORT = "https://mindwelth-frontend.vercel.app";
-//app.listen(PORT, () => {
-//  console.log(`Server running on port ${PORT}`);
-//});
 module.exports = app;
