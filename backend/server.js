@@ -80,7 +80,9 @@ const authenticateUser = (req, res, next) => {
         res.status(401).json({ message: "Invalid token" });
     }
 };
-
+app.get("/", (req, res) => {
+    res.send("Welcome to the MindWelth API!");
+});
 
 const noteRoutes = require('./routes/noteRoutes');
 app.use('/api/note', noteRoutes);
