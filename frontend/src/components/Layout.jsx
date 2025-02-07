@@ -8,10 +8,12 @@ const Layout = ({ children }) => {
   const navigate = useNavigate();
 
   const navItems = [
+    { name: 'Dashboard', href: '/dashboard' },
     { name: 'Mood Logs', href: '/notes' },
     { name: 'Quizzes', href: '/quizzes' },
     { name: 'AI Therapist', href: '/therapist' },
     { name: 'Resources', href: '/resources' },
+    
   ];
 
   const handleLogout = () => {
@@ -97,11 +99,9 @@ const Layout = ({ children }) => {
               <p className="text-gray-600">24/7 Crisis Helpline: <a href="tel:9152987821" className="text-purple-600 hover:text-purple-500">9152987821</a></p>
               <p className="text-gray-600">Visit Website: <a href="https://www.thelivelovelaughfoundation.org/find-help/helplines" className="text-purple-600 hover:text-purple-500">LIVE.LOVE.LAUGH</a></p>
             </div>
-            <div className="flex space-x-6">
-              <a href="#" className="text-gray-600 hover:text-purple-600">Privacy Policy</a>
-              <a href="#" className="text-gray-600 hover:text-purple-600">Terms of Service</a>
-              <a href="#" className="text-gray-600 hover:text-purple-600">Contact</a>
-            </div>
+        <p className="text-lg">Made with ☕️ + Garima</p>
+        <p className="text-sm mt-2">© 2025 MindWelth. All Rights Reserved.</p>
+      
           </div>
         </div>
       </footer>
