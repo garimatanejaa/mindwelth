@@ -9,7 +9,7 @@ const User = require('./models/users');
 const app = express();
 app.use(express.json());
 app.use(cors({
-    origin: [""],
+    origin: ["https://mindwelth-frontend.vercel.app/"],
     methods : ["POST","GET"],
     credentials: true
 }));
