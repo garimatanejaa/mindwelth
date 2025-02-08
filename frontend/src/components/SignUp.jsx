@@ -17,7 +17,7 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://mindwelth.vercel.app/api/signup', formData);
+      const response = await axios.post('http://localhost:5000/api/signup', formData);
       console.log("Signup successful:", response.data);
       navigate("/signin"); // Redirect after signup
     } catch (err) {

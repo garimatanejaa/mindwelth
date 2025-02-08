@@ -62,19 +62,19 @@ const LandingPage = () => {
   {/* Right Side Image with Animation */}
   <div className="hidden md:block relative">
     <img
-      src="./public/mentalhealth.jpeg"
+      src="/mentalhealth.jpeg"
       alt="Mental Wellness"
       className="w-full max-w-xs md:max-w-sm rounded-lg shadow-lg transform transition duration-500 hover:scale-105 animate-floating"
     />
     <br></br>
     <img
-      src="./public/mentalwelth3.png"
+      src="/mentalwelth3.png"
       alt="Mental Wellness"
       className="w-full max-w-xs md:max-w-sm rounded-lg shadow-lg transform transition duration-500 hover:scale-105 animate-floating"
     />
     <br></br>
     <img
-      src="./public/mentalwelth2.jpg"
+      src="/mentalwelth2.jpg"
       alt="Mental Wellness"
       className="w-full max-w-xs md:max-w-sm rounded-lg shadow-lg transform transition duration-500 hover:scale-105 animate-floating"
     />

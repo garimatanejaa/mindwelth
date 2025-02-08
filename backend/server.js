@@ -9,11 +9,7 @@ const User = require('./models/users');
 
 const app = express();
 app.use(express.json());
-app.use(cors({
-    origin: ["https://mindwelth-frontend.vercel.app"],
-    methods: ["POST", "OPTIONS"],
-    credentials: true
-}));
+app.use(cors());
 app.use(bodyParser.json());
 
 mongoose.connect(process.env.MONGODB_URI)
@@ -87,5 +83,11 @@ const noteRoutes = require('./routes/noteRoutes');
 app.use('/api/note', noteRoutes);
 const attemptRoutes = require("./routes/attemptRoutes"); 
 app.use("/api/attempts", attemptRoutes); 
+
+// Start the server
+const PORT = process.env.PORT || 5000; // Use environment variable or fallback to 5000
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
 
 module.exports = app;
